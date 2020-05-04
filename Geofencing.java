@@ -4,9 +4,10 @@ public class Geofencing {
         int max_people = 0;
         double fence_lon = 0;
         double fence_lat = 0;
+        int radius = 0;
         Latlng fencecoordinate = Latlng(fence_lat, fence_lon);
         Geofence.Builder()
-        .setCircularRegion()
+        .setCircularRegion(fencecoordinate.latitude, fencecoordinate.longitude, radius)
         .setTransitionTypes( Geofence.GEOFENCE_TRANSITION_ENTER, Geofence.GEOFENCE_TRANSITION_EXIT )
         .build();
         int geoFenceTransition = geofencingEvent.getGeofenceTransition();
